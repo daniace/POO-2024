@@ -1,0 +1,18 @@
+	TICKET
+- NVenta: integer
+- Fecha: date
+- Total: double
+- ListaMed: list
+------------------
++ Ticket(Nventa: integer, Fecha: date, Total: double, ListaMed: lista)
++ AggProd()
++ ElimProd()
++ CalcTotal()
+
+
+
+
+	MEDICAMENTO
+- Nombre: string
+- Dosis: integer
+- Precio: integer
