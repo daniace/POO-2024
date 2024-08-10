@@ -1,33 +1,23 @@
-class Tienda:
-    def __init__(self):
-        self.listado_curso = []
+from Tienda import Tienda
+from Curso import Curso
 
-    def agregar_curso(self, curso):
-        self.listado_curso.append(curso)
+curso1 = Curso("Pytorch para Deep Learning", 12.99, 74.99, 4.6, "2,907", "PITON")
+curso1.agregar_instructores("Andrei Neagoie")
+curso1.agregar_instructores("Daniel Bourke")
+curso1.etiqueta = "BestSeller"
 
-    def imprimir_curso(self):
-        for curso in self.listado_curso:
-            print(f"Nombre: {curso.nombre}")
-            print(f"Precio: {curso.precio}")
-            print(f"Estrellas: {curso.estrellas}")
-            print(f"Autor: {curso.autor}")
-            print(f"Imagen: {curso.imagen}")
-            print("\n")
+curso2 = Curso("Machine learning A-Z: AI Python & R + ChatGPT", 14.99, 84.99, 4.5, "184,477", "Humano")
+curso2.agregar_instructores("Krillin  Eremeko")
+curso2.agregar_instructores("Hadelin DePaul")
+curso2.etiqueta = "BestSeller"
 
+curso3 = Curso("Deep Learning: Advanced Computer vision", 14.99, 79.99, 4.6, "6,157", "Ojo")
+curso3.agregar_instructores("Lazy Programming Inc")
 
-class Curso:
-    def __init__(self, nombre, precio, estrellas, autor, imagen):
-        self.nombre = nombre
-        self.precio = precio
-        self.estrellas = estrellas
-        self.autor = autor
-        self.imagen = imagen
+curso4 = Curso("Applied Generative AI and Natural Language Processing", 12.99, 54.99, 4.7, 88, "Carteles")
+curso4.agregar_instructores("Bert Bollnick")
+curso4.etiqueta = "Hot & New"
 
-
-curso1 = Curso("Pytorch para Deep Learning", 12.99, 4.6, "Andrei Negroni", "PITON")
-curso2 = Curso("Machine learning A-Z: AI Python & R + ChatGPT", 14.99, 4.5, "Krilin Esposito", "Humano")
-curso3 = Curso("Deep Learning: Advanced Computer vision", 14.99, 4.5, "Lazy Town", "ojo")
-curso4 = Curso("Applied Generative AI and Natural Language Processing", 12.99, 4.7, "Bert Gollok", "Carteles")
 tiendita = Tienda()
 tiendita.agregar_curso(curso1)
 tiendita.agregar_curso(curso2)
