@@ -24,4 +24,4 @@ for pro in profesores:
     print(f"{"Profesor: "}{pro.nombre}{", "}{pro.apellido}")
     print("Materias:")
     for mat in pro.materia:
-        print(mat.imprimir())
+        print(mat.nombre)

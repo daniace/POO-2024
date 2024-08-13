@@ -25,8 +25,4 @@ class Materia:
     @codigo.setter
     def codigo(self, codigo):
         self.__codigo = codigo
-
-    def imprimir(self):
-        return f"{self.__nombre} ({self.__codigo})"
-
     
