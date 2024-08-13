@@ -1,13 +1,8 @@
 class Profesor:
-    def __init__(self):
-        self.__nombre = None
-        self.__apellido = None
-        self.__materia = []
-    
-    @classmethod
-    def inicio_con_profesor_y_apellido(self, nombre, apellido):
+    def __init__(self, nombre, apellido):
         self.__nombre = nombre
         self.__apellido = apellido
+        self.__materia = []
     
     @property
     def nombre(self):
@@ -35,4 +30,3 @@ class Profesor:
 
     def agregar_materia(self, materia):
         self.__materia.append(materia)
-    
