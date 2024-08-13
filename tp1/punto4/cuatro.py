@@ -1,5 +1,5 @@
-from Tienda import Tienda
-from Curso import Curso
+from tp1.punto4.Tienda import Tienda
+from tp1.punto4.Curso import Curso
 
 curso1 = Curso("Pytorch para Deep Learning", 12.99, 74.99, 4.6, "2,907", "PITON")
 curso1.agregar_instructores("Andrei Neagoie")

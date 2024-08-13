@@ -1,3 +1,4 @@
+package punto6;
 import java.util.Scanner;
 
 public class seis {
