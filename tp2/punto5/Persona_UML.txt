@@ -1,0 +1,19 @@
+@startuml
+class Persona {
+    getNombre()
+    setNombre()
+    getApellido()
+    setApellido()
+    getFechaNacimiento()
+    setFechaNacimiento()
+    __str__()
+    calculoEdad()
+        __nombre
+    __apellido
+    __fechaNacimiento
+    __nombre
+    __apellido
+    __fechaNacimiento
+    __init__()
+}
+@enduml
