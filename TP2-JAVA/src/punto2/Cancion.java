@@ -3,16 +3,16 @@ public class Cancion {
     private String autor;
     private int duracion;
 
-    public Cancion(String nombre, String autor, int duracion) {
+    public Cancion(String nombre, String autor, double duracion) {
         this.nombre = nombre;
         this.autor = autor;
-        this.duracion = duracion;
+        this.duracion = (int) duracion;
     }
 
-    public Cancion(){
+    public Cancion() {
         this.nombre = "";
         this.autor = "";
-        this.duracion = 0.0;
+        this.duracion = (int) 0.0;
     }
 
     public String getNombre() {
@@ -35,8 +35,8 @@ public class Cancion {
         this.autor = autor;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public void setDuracion(double d) {
+        this.duracion = (int) d;
     }
 
     public String toString() {
