@@ -46,6 +46,18 @@ class Persona:
         else:
             print(f"{self.__nombre} Tiene edad insuficiente para manejar ({self.__edad} años)")
 
+    def imp_est(self):
+        if self.__estudia:
+            print(f"{self.__nombre} estudia")
+        else:
+            print(f"{self.__nombre} no estudia")
+    
+    def imp_tra(self):
+        if self.__trabaja:
+            print(f"{self.__nombre} trabaja")
+        else:
+            print(f"{self.__nombre} no trabaja")
+
     def __str__(self):
-        return (f"{self.__nombre} {self.__apellido} {self.__edad} años, {self.__sexo}, trabaja: {self.__trabaja}, "
-                f"estudia: {self.__estudia}")
+        return (f"{self.__nombre} {self.__apellido} {self.__edad} años, {self.__sexo}, trabaja: {self.imp_tra()}, "
+                f"estudia: {self.imp_est()}")
