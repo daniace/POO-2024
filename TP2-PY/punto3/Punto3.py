@@ -1,6 +1,7 @@
 from Alumno import Alumno
 
 alumno1 = Alumno()
+alumno1 = alumno1.Iniciar()
 alumno1.setNombre("Alejandro")
 alumno1.setApellido("Rojas")
 alumno1.setDni(11111111)

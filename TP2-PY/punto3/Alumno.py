@@ -1,8 +1,18 @@
+
+
 class Alumno:
     def __init__(self):
         self.__nombre = None
         self.__apellido = None
         self.__dni = 0
+
+    @classmethod
+    def Iniciar(cls):
+        alumno = cls.__new__(cls)
+        alumno.__nombre = "Pepe"
+        alumno.__apellido = "Flores"
+        alumno.__dni = "12345678"
+        return alumno
     
     @classmethod
     def iniciar_con_nombre_apellido(cls, nombre, apellido):
