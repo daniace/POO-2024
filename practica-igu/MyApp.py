@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication, QPushButton
+from PyQt6.QtWidgets import QApplication, QMainWindow
 import sys
 
 # Solo se necesita una instancia de QApplication por aplicación
@@ -7,7 +7,7 @@ import sys
 app = QApplication(sys.argv)
 
 # Creamos una instancia de QWidget, que va a ser nuestra ventana
-window = QPushButton("Apretame")
+window = QMainWindow()
 window.show() # IMPORTANTE, las ventanas están ocultas por defecto
 
 # Ejecutamos el bucle de eventos de la aplicación
