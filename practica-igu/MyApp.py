@@ -16,20 +16,21 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("Mi aplicación")
 
-        button = QPushButton("Apretame!")
-        button.setCheckable(True)
-        button.clicked.connect(self.el_boton_fue_alternado)
-        button.setChecked(self.el_boton_esta_chequeado)
-
+        self.button = QPushButton("Apretame!")
+        self.button.setCheckable(True)
+        self.button.released.connect(
+            self.el_boton_esta_liberado
+        )
+        self.button.setChecked(self.el_boton_esta_chequeado)
         self.setFixedSize(QSize(400, 300))
         self.setMinimumSize(QSize(200, 150))
         self.setMaximumSize(QSize(600, 450))
 
         # Ponemos el widget central de la ventana
-        self.setCentralWidget(button)
+        self.setCentralWidget(self.button)
 
-    def el_boton_fue_alternado(self, checked):
-        self.el_boton_esta_chequeado = checked
+    def el_boton_esta_liberado(self):
+        self.el_boton_esta_chequeado = self.button.isChecked()
 
         print(self.el_boton_esta_chequeado)
 
