@@ -16,6 +16,8 @@ class MainWindow(QMainWindow):
 
         boton = QPushButton("Apretame!")
 
+        self.setFixedSize(QSize(400, 300))
+
         # Ponemos el widget central de la ventana
         self.setCentralWidget(boton)
 
