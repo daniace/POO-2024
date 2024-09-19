@@ -17,6 +17,7 @@ class MainWindow(QMainWindow):
         button = QPushButton("Apretame!")
         button.setCheckable(True)
         button.clicked.connect(self.el_boton_fue_apretado)
+        button.clicked.connect(self.el_boton_fue_alternado)
 
         self.setFixedSize(QSize(400, 300))
         self.setMinimumSize(QSize(200, 150))
@@ -27,6 +28,9 @@ class MainWindow(QMainWindow):
 
     def el_boton_fue_apretado(self):
         print("El botón fue apretado!")
+
+    def el_boton_fue_alternado(self, checked):
+        print("Chequeado?", checked)
 
 app = QApplication(sys.argv)
 
