@@ -1,16 +1,27 @@
-from PyQt6.QtWidgets import QApplication, QMainWindow
 import sys
 
-# Solo se necesita una instancia de QApplication por aplicación
-# sys.argv es una lista de argumentos de la línea de comandos
-# Si no sabes como usar sys.argv, QApplication([]) también funciona
+from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtWidgets import (
+    QApplication,
+    QMainWindow,
+    QPushButton,
+)
+
+# Subclase QMainWindow para customizar la ventana principal
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("Mi aplicación")
+
+        boton = QPushButton("Apretame!")
+
+        # Ponemos el widget central de la ventana
+        self.setCentralWidget(boton)
+
 app = QApplication(sys.argv)
 
-# Creamos una instancia de QWidget, que va a ser nuestra ventana
-window = QMainWindow()
-window.show() # IMPORTANTE, las ventanas están ocultas por defecto
+window = MainWindow()
+window.show()
 
-# Ejecutamos el bucle de eventos de la aplicación
 app.exec()
-
-# Tu aplicación no va a cerrarse hasta que el bucle de eventos termine
