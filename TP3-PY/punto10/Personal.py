@@ -9,10 +9,15 @@ class Personal(ABC):
         self._sector = sector
         self._horasSemanales = 0
 
-    @property
-    def horasSemanales(self):
+    def get_horas_semanales(self):
         return self._horasSemanales
-
-    @horasSemanales.setter
-    def horasSemanales(self, horas):
+    
+    def set_horas_semanales(self, horas):
         self._horasSemanales = horas
+
+    def imprimir(self):
+        print(f"Nombre: {self._nombre}")
+        print(f"Apellido: {self._apellido}")
+        print(f"Antigüedad: {self._antiguedad}")
+        print(f"Sector: {self._sector}")
+        print(f"Horas semanales: {self._horasSemanales}")
