@@ -1,20 +1,16 @@
 from Cuenta import Cuenta
-from Pagar import Pagar
 
-class Banco(Cuenta, Pagar):
+
+class CuentaBancaria(Cuenta):
     def __init__(self, saldo, duenio, numero_cuenta, cbu):
         super().__init__(saldo, duenio, numero_cuenta)
         self.__cbu = cbu
 
     def pagar_debito(self, monto):
+        super().pagar_debito(monto)
         reintegro = monto * 0.10
-        if self._saldo > monto:
-            self._saldo -= monto
-            self._saldo += reintegro
-            print(f"Pago de debito de ${monto} realizado con exito! Reintegro: ${reintegro} \n")
-        else:
-            print(f"Saldo insuficiente ${self._saldo} \n")
-            pass
+        self._saldo += reintegro
+        print(f"Reintegro: ${reintegro} \n")
 
     def pagar_credito(self, monto, cuotas):
         interes = cuotas * 0.02
@@ -30,7 +26,7 @@ class Banco(Cuenta, Pagar):
                     self._saldo -= (monto / cuotas) + interes
                     print(f"Pago de credito de ${monto} realizado con exito! en {cuotas} cuotas con un interes de %{int(interes * 100)} \n")
         else:
-            print(f"Saldo insuficiente ${self._saldo} \n")
+            print(f"Saldo insuficiente ${round(self._saldo,2)} \n")
             pass
 
     def imprimir(self):
@@ -41,7 +37,7 @@ class Banco(Cuenta, Pagar):
 
 
 if __name__ == "__main__":
-    banco = Banco(10000, "Juan Perez", 123456, 987654)
+    banco = CuentaBancaria(10000, "Juan Perez", 123456, 987654)
     banco.imprimir()
     banco.pagar_debito(1000)
     banco.imprimir()

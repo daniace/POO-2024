@@ -1,15 +1,15 @@
-from Banco import Banco
-from BilleteraVirtual import BilleteraVirtual
+from CuentaBancaria import CuentaBancaria
+from CuentaBilleteraVirtual import CuentaBilleteraVirtual
 from Impuesto import Impuesto
 import random
 
-cuenta_bancaria = Banco(
+cuenta_bancaria = CuentaBancaria(
     random.randint(1000, 10000),
     "Wolfgang Amadeus Mozart",
     random.randint(1000, 10000),
     random.randint(100000, 10000000),
 )
-cuenta_virtual = BilleteraVirtual(
+cuenta_virtual = CuentaBilleteraVirtual(
     random.randint(1000, 10000),
     "Peter Parker",
     random.randint(1000, 10000),
@@ -83,7 +83,7 @@ for impuesto in impuestos:
                         )
                         print("--------------------")
                     else:
-                        print(f"Saldo insuficiente ${cuenta_bancaria.get_saldo()}\n")
+                        print(f"Saldo insuficiente ${round(cuenta_bancaria.get_saldo(),2)}\n")
                 case "credito":
                     if cuenta_bancaria.get_saldo() > impuesto.get_monto():
                         print("---Pago Credito---\n")
@@ -95,7 +95,7 @@ for impuesto in impuestos:
                         )
                         print("--------------------")
                     else:
-                        print(f"Saldo insuficiente ${cuenta_bancaria.get_saldo()}\n")
+                        print(f"Saldo insuficiente ${round(cuenta_bancaria.get_saldo(),2)}\n")
         case "cuenta_virtual":
             print("---BILLETERA VIRUTAL---\n")
             print("---Impuesto a pagar---\n")
@@ -111,7 +111,7 @@ for impuesto in impuestos:
                         )
                         print("--------------------")
                     else:
-                        print(f"Saldo insuficiente ${cuenta_virtual.get_saldo()}\n")
+                        print(f"Saldo insuficiente ${round(cuenta_virtual.get_saldo(),2)}\n")
                 case "credito":
                     if cuenta_virtual.get_saldo() > impuesto.get_monto():
                         print("---Pago Credito---\n")
@@ -123,7 +123,7 @@ for impuesto in impuestos:
                         )
                         print("--------------------")
                     else:
-                        print(f"Saldo insuficiente ${cuenta_virtual.get_saldo()}\n")
+                        print(f"Saldo insuficiente ${round(cuenta_virtual.get_saldo(),2)}\n")
 
 print("---IMPUESTOS PAGADOS---\n")
 for impuesto in impuestos:
