@@ -23,13 +23,15 @@ class Impuesto:
     def validar_pago(self, monto, periodo):
         numero_comprobante = random.randint(1000, 9999)
         if monto == self.__monto and periodo == self.__periodo:
-            print("Pago realizado con exito!")
-            print(f"N° Comprobante: {numero_comprobante}\n")
+            print("Pago realizado!")
+            print(f" - N°Comprobante: {numero_comprobante}\n")
             self.__numero_comprobante = numero_comprobante
             self.__cobrado = True
         else:
-            print("Pago no realizado")
-            print(f"Verifique el monto ${monto} y el periodo: {periodo}\n")
+            print("Pago NO realizado.")
+            print("Verifique")
+            print(f" - Monto: ${monto}")
+            print(f" - Periodo/Mes: {periodo}\n")
             self.__cobrado = False
 
     def imprimir(self):
@@ -48,14 +50,14 @@ if __name__ == "__main__":
 
     print("---Impuesto a pagar---\n")
     lista_impuestos[0].imprimir()
-    print("--------------------")
+    print("----------------------")
 
-    print("---Pago realizado---\n")
+    print("----Pago realizado----\n")
     lista_impuestos[0].validar_pago(lista_impuestos[0].get_monto(), lista_impuestos[0].get_periodo()) # Valido
     lista_impuestos[0].imprimir()
-    print("--------------------")
+    print("----------------------")
     
-    print("---Pago no realizado---\n")
+    print("----Pago Rechazado----\n")
     lista_impuestos[0].validar_pago(random.randint(1000,5000), random.randint(1,12)) # No valido pero muy poco probable que sea valido
     lista_impuestos[0].imprimir()
-    print("--------------------")
+    print("----------------------")

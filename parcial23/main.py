@@ -49,9 +49,9 @@ nombre_impuesto = [
     "Impuesto a la transferencia de servicios de justicia",
 ]
 
-impuestos = []
+lista_impuestos = []
 for i in range(1, 21):
-    impuestos.append(
+    lista_impuestos.append(
         Impuesto(
             random.choice(nombre_impuesto),
             random.randint(500, 1500),
@@ -59,13 +59,15 @@ for i in range(1, 21):
         )
     )
 
-random.shuffle(impuestos)
+random.shuffle(lista_impuestos)
 
 cuotas = (1, 3, 6, 12)
 
 tipo_pago = ["debito", "credito"]
 tipo_cuenta = ["cuenta_bancaria", "cuenta_virtual"]
+tipo_cuentita = [cuenta_bancaria, cuenta_virtual]
 
+"""
 for impuesto in impuestos:
     match random.choice(tipo_cuenta):
         case "cuenta_bancaria":
@@ -124,9 +126,22 @@ for impuesto in impuestos:
                         print("--------------------")
                     else:
                         print(f"Saldo insuficiente ${round(cuenta_virtual.get_saldo(),2)}\n")
+"""
+
+
+def pagar_nazi(cuenta, pago, impuesto, cuotas):
+    match pago:
+        case "debito":
+            impuesto.validar_pago(cuenta.pagar_debito(impuesto.get_monto()), random.randint(1,12))
+        case "credito":
+            impuesto.validar_pago(cuenta.pagar_credito(impuesto.get_monto(), cuotas), random.randint(1,12))
+
+for impuesto in lista_impuestos:
+    pagar_nazi(random.choice(tipo_cuentita), random.choice(tipo_pago), impuesto, random.choice(cuotas))
+
 
 print("---IMPUESTOS PAGADOS---\n")
-for impuesto in impuestos:
+for impuesto in lista_impuestos:
     if impuesto.get_cobrado():
         impuesto.imprimir()
         print(f"Cobrado: {impuesto.get_cobrado()}")
