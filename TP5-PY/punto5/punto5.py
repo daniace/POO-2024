@@ -1,6 +1,6 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, Match
 
 
 class BuilderTorta(ABC):
@@ -22,18 +22,6 @@ class BuilderTorta(ABC):
     def produce_relleno(self) -> None:
         pass
 
-    @abstractmethod
-    def produce_sabor_vainilla(self) -> None:
-        pass
-
-    @abstractmethod
-    def produce_sabor_coco(self) -> None:
-        pass
-
-    @abstractmethod
-    def produce_sabor_chocolate(self) -> None:
-        pass
-
 
 class ConcreteBuilderTorta(BuilderTorta):
 
@@ -50,30 +38,60 @@ class ConcreteBuilderTorta(BuilderTorta):
         return torta
 
     def produce_masa(self) -> None:
-        self._torta.add("500g de masa :v")
+        print(" 1 - Vainilla \n"
+              " 2 - Coco \n"
+              " 3 - Chocolate \n")
+        eleccion = int(input("Elige el sabor de la masa: "))
+        match eleccion:
+            case 1:
+                self._torta.add("Masa de Vainilla")
+                self._torta.setMasa("Vainilla")
+            case 2:
+                self._torta.add("Masa de Coco")
+                self._torta.setMasa("Coco")
+            case 3:
+                self._torta.add("Masa de Chocolate")
+                self._torta.setMasa("Chocolate")
+            case _:
+                print("Sabor no encontrado")
 
     def produce_relleno(self) -> None:
-        self._torta.add("250g de naruto XD")
+        print(" 1 - Dulce de leche \n"
+              " 2 - Durazno con crema \n"
+              " 3 - Frutos rojos \n")
+        eleccion = int(input("Elige el relleno de la torta: "))
+        match eleccion:
+            case 1:
+                self._torta.add("Relleno de Dulce de Leche")
+                self._torta.setRelleno("Dulce de leche")
+            case 2:
+                self._torta.add("Relleno de Durazno con crema")
+                self._torta.setRelleno("Durazno con crema")
+            case 3:
+                self._torta.add("Relleno de Frutos Rojos")
+                self._torta.setRelleno("Frutos Rojos")
+            case _:
+                print("Anda a mirar naruto")
 
-    def produce_sabor_vainilla(self) -> None:
-        self._torta.add("Sabor Vainilla")
 
-    def produce_sabor_coco(self) -> None:
-        self._torta.add("Sabor Coco")
-
-    def produce_sabor_chocolate(self) -> None:
-        self._torta.add("Sabor Chocolate")
-
-
-class Torta():
+class Torta:
     def __init__(self) -> None:
         self.ingredientes = []
+        self.__masa = str
+        self.__relleno = str
+
+    def setMasa(self, valor):
+        self.__masa = valor
+
+    def setRelleno(self, valor):
+        self.__relleno = valor
 
     def add(self, ingrediente: Any) -> None:
         self.ingredientes.append(ingrediente)
 
     def lista_ingredientes(self) -> None:
         print(f"Ingredientes de la Torta: {', '.join(self.ingredientes)}", end="")
+        print("\n")
 
 
 class Director:
@@ -88,38 +106,22 @@ class Director:
     def builder(self, builder: BuilderTorta) -> None:
         self._builder = builder
 
-    def build_vainilla(self) -> None:
+    def build_torta(self) -> None:
         self.builder.produce_masa()
         self.builder.produce_relleno()
-        self.builder.produce_sabor_vainilla()
-
-    def build_coco(self) -> None:
-        self.builder.produce_masa()
-        self.builder.produce_relleno()
-        self.builder.produce_sabor_coco()
-
-    def build_chocolate(self) -> None:
-        self.builder.produce_masa()
-        self.builder.produce_relleno()
-        self.builder.produce_sabor_chocolate()
 
 
 director = Director()
 builder = ConcreteBuilderTorta()
 director.builder = builder
 
-print("Torta de Vainilla: ")
-director.build_vainilla()
+director.build_torta()
+builder.torta.lista_ingredientes()
+
+director.build_torta()
+builder.torta.lista_ingredientes()
+
+director.build_torta()
 builder.torta.lista_ingredientes()
 
 print("\n")
-
-print("Torta de Coco: ")
-director.build_coco()
-builder.torta.lista_ingredientes()
-
-print("\n")
-
-print("Torta de Chocolate: ")
-director.build_chocolate()
-builder.torta.lista_ingredientes()
